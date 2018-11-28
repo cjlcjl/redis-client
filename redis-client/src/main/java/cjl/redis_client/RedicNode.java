@@ -275,6 +275,12 @@ public class RedicNode {
             running.set(true);
             while (running.get()) {
             	
+            	try {
+					Thread.sleep(waitTimeMillis);	//休息一下
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}	
+            	
             	for (String sentinel : sentinels) {
                     final HostAndPort hap = toHostAndPort(Arrays.asList(sentinel.split(":")));
 
@@ -312,12 +318,6 @@ public class RedicNode {
                         }
                     }
                 }
-            	
-            	try {
-					Thread.sleep(waitTimeMillis);	//休息一下
-				} catch (InterruptedException e) {
-					e.printStackTrace();
-				}	
             	
             }
         }
