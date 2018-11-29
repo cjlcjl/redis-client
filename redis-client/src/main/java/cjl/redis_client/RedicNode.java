@@ -579,7 +579,9 @@ public class RedicNode {
         return new HostAndPort(host, port);
     }
     
-    
+    /**
+     * 打印RedicNode状态
+     */
     public void printJedisInfos() {
     
     	System.out.println("-----------------------");
